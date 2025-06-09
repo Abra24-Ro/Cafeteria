@@ -27,12 +27,25 @@ function imagenWebp() {
     .pipe(dest("build/img"));
 }
 
+// Copiar archivos HTML
+function html() {
+  return src("*.html")
+    .pipe(dest("build"));
+}
+
 // Watch para desarrollo
 function dev() {
   watch("src/scss/**/*.scss", css);
   watch("src/img/**/*.{png,jpg,jpeg}", series(imagenWebp));
+  watch("*.html", html);
 }
 
+// Tarea de build para producción (sin watch)
+const build = series(imagenWebp, css, html);
+
+// Tarea de desarrollo (con watch)
+const desarrollo = series(imagenWebp, css, html, dev);
+
 // Exportar tareas
-export { imagenWebp };
-export default series(imagenWebp, css, dev);
+export { imagenWebp, css, html, build, dev };
+export default desarrollo;

@@ -4,7 +4,9 @@
   "description": "i'm learning gulp and sass",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp build",
+    "dev": "gulp"
   },
   "author": "RaroDev",
   "license": "ISC",
