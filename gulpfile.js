@@ -19,12 +19,6 @@ function css() {
     .pipe(dest("build/css"));
 }
 
-// Copiar imágenes originales
-function copiarImagenes() {
-  return src("src/img/**/*.{png,jpg,jpeg}")
-    .pipe(dest("build/img"));
-}
-
 // Convertir a WebP
 function imagenWebp() {
   return src("src/img/**/*.{png,jpg,jpeg}")
@@ -41,12 +35,13 @@ function html() {
 // Watch
 function dev() {
   watch("src/scss/**/*.scss", css);
-  watch("src/img/**/*.{png,jpg,jpeg}", series(copiarImagenes, imagenWebp));
+  watch("src/img/**/*.{png,jpg,jpeg}", imagenWebp);
   watch("*.html", html);
 }
 
-const build = series(copiarImagenes, imagenWebp, css, html);
-const desarrollo = series(copiarImagenes, imagenWebp, css, html, dev);
+// Build final sin copiar imágenes originales
+const build = series(imagenWebp, css, html);
+const desarrollo = series(imagenWebp, css, html, dev);
 
-export { imagenWebp, copiarImagenes, css, html, build, dev };
+export { imagenWebp, css, html, build, dev };
 export default desarrollo;
