@@ -5,7 +5,7 @@
   @include m.tablet {
     @include m.grid(2, v.$separacion);
     background: {
-      image: url(../img/granos_cafe-2.jpg);
+      image: url(img/granos_cafe-2.jpg);
       repeat: no-repeat;
       position: right center;
       size: 45%;
