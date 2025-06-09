@@ -29,10 +29,10 @@
   gap: $separacion;
 }
 
+// ✅ Correcto
 @mixin header-bg($imagen) {
-  background-image: url(../img/#{$imagen});
-  background-repeat: no-repeat;
-  background-position: center center;
+  background-image: url("../img/" + $imagen);
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-
