@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cafetaría SASS</title>
+    <link rel="shortcut icon" href="build/img/icono_cafe.svg" type="image/x-icon">
+
+    <!-- Meta etiquetas para redes sociales -->
+    <meta
+      property="og:title"
+      content="Cafetería SASS - El mejor café de Rioja"
+    />
+    <meta
+      property="og:description"
+      content="Disfruta de una experiencia única con nuestro café de especialidad, postres y más."
+    />
+    <meta
+      property="og:image"
+      content="https://github.com/Abra24-Ro/Cafeteria.git/build/img/social.png"
+    />
+    <meta property="og:url" content="https://github.com/Abra24-Ro/Cafeteria.git" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&family=Raleway:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="build/css/app.css" />
+  </head>
+  <body>
+    <header class="header header-inicio">
+      <div class="contenido-header contenedor">
+        <div class="barra">
+          <div class="logo">
+            <img src="build/img/logo.svg" alt="logo cafeteria" />
+          </div>
+          <nav class="nav-principal">
+            <a href="index.html" class="link">Inicio</a>
+            <a href="nosotros.html" class="link">Nosotros</a>
+            <a href="proceso.html" class="link">Proceso</a>
+            <a href="menu.html" class="link">Menu</a>
+            <a href="galeria.html" class="link">galeria</a>
+            <a href="contacto.html" class="link">Contacto</a>
+          </nav>
+        </div>
+        <div class="texto-header">
+          <h1>Disfruta de una deliciosa taza de café</h1>
+        </div>
+      </div>
+    </header>
+
+    <main class="contenedor contenido-principal text-center">
+      <section class="conoce">
+        <h2><span>Conoce más</span> sobre nosotros</h2>
+        <p>
+          En nuestra cafetería, cada taza cuenta una historia. Nos apasiona
+          ofrecer café de especialidad, cultivado de manera sostenible y
+          preparado con dedicación. Desde 2015, hemos creado un espacio donde el
+          aroma del café se mezcla con buenos momentos, atención cálida y
+          sabores que reconfortan el alma.
+        </p>
+      </section>
+      <section class="iconos">
+        <ul class="listado-iconos">
+          <li>
+            <img src="build/img/icono_cafe.svg" alt="icono cafe" />
+            <p>Café</p>
+          </li>
+          <li>
+            <img src="build/img/icono_postre.svg" alt="icono postre" />
+            <p>Postres</p>
+          </li>
+          <li>
+            <img src="build/img/icono_te.svg" alt="icono te" />
+            <p>Té</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="experiencia">
+        <h2><span>Vive la </span> experiencia</h2>
+        <div class="galeria">
+          <div class="img">
+            <img src="build/img/galeria/galeria_01.jpg" alt="galeria img" />
+          </div>
+          <div class="img">
+            <img src="build/img/galeria/galeria_02.jpg" alt="galeria img" />
+          </div>
+          <div class="img">
+            <img src="build/img/galeria/galeria_03.jpg" alt="galeria img" />
+          </div>
+          <div class="img">
+            <img src="build/img/galeria/galeria_04.jpg" alt="galeria img" />
+          </div>
+          <div class="img">
+            <img src="build/img/galeria/galeria_05.jpg" alt="galeria img" />
+          </div>
+          <div class="img">
+            <img src="build/img/galeria/galeria_06.jpg" alt="galeria img" />
+          </div>
+          <div class="img">
+            <img src="build/img/galeria/galeria_07.jpg" alt="galeria img" />
+          </div>
+          <div class="img">
+            <img src="build/img/galeria/galeria_08.jpg" alt="galeria img" />
+          </div>
+          <div class="img">
+            <img src="build/img/galeria/galeria_09.jpg" alt="galeria img" />
+          </div>
+          <div class="img">
+            <img src="build/img/galeria/galeria_10.jpg" alt="galeria img" />
+          </div>
+        </div>
+      </section>
+    </main>
+    <div class="nuestro-menu">
+      <h2 class="heading-blanco"><span>Nuestro delicioso</span>Menú</h2>
+
+      <div class="contenedor grid-menu">
+        <section class="menu cafe">
+          <h3>Café</h3>
+          <ul>
+            <li>
+              <p>
+                Café Latte
+                <span>Café Espresso con leche caliente evaporada</span>
+              </p>
+              <p class="precio">$25</p>
+            </li>
+            <li>
+              <p>Café Mocha <span>Espresso con crema batida</span></p>
+              <p class="precio">$30</p>
+            </li>
+            <li>
+              <p>Café Americano <span>Café Negro</span></p>
+              <p class="precio">$30</p>
+            </li>
+            <li>
+              <p>Capuccino<span>Espresso con una capa suave de espuma</span></p>
+              <p class="precio">$25</p>
+            </li>
+            <li>
+              <p>
+                Café Mocha Frio<span>Espresso, dulce con mocha y leche.</span>
+              </p>
+              <p class="precio">$29</p>
+            </li>
+            <li>
+              <p>
+                Mocha Frio Quemado<span
+                  >Espresso, hielo, con azucar quemada y mantequilla.</span
+                >
+              </p>
+              <p class="precio">$35</p>
+            </li>
+            <li>
+              <p>Latte con Caramelo<span>Espresso, leche y caramelo.</span></p>
+              <p class="precio">$39</p>
+            </li>
+          </ul>
+        </section>
+
+        <div class="menu comida">
+          <h3>Comida</h3>
+          <ul>
+            <li>
+              <p>
+                Baguette de Pollo
+                <span>Delicioso Baguette con pollo a la plancha</span>
+              </p>
+              <p class="precio">$45</p>
+            </li>
+            <li>
+              <p>
+                Baguette Pollo y Queso
+                <span>Baguette combinado con Pollo y Queso Manchego</span>
+              </p>
+              <p class="precio">$50</p>
+            </li>
+            <li>
+              <p>
+                Baguette con Tocino<span
+                  >Baguette con especias y verduras, además de tocino</span
+                >
+              </p>
+              <p class="precio">$50</p>
+            </li>
+            <li>
+              <p>
+                Baguette de Jamón<span
+                  >Delicioso Baguette con Jamón y Especias</span
+                >
+              </p>
+              <p class="precio">$65</p>
+            </li>
+            <li>
+              <p>
+                Baguette con Jamón, Queso y Tocino<span
+                  >El especial de la casa</span
+                >
+              </p>
+              <p class="precio">$69</p>
+            </li>
+            <li>
+              <p>
+                Sandwich de Pollo<span
+                  >Delicioso sandwich con Pollo y especies</span
+                >
+              </p>
+              <p class="precio">$65</p>
+            </li>
+            <li>
+              <p>
+                Sandwich de Jamón y queso<span
+                  >Queso Amarillo con Jamón y Queso</span
+                >
+              </p>
+              <p class="precio">$59</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="nuestros-testimoniales contenedor margin-negativo-10 bg-white">
+      <h2><span>Lo que dicen nuestros</span>Clientes</h2>
+
+      <div class="testimonial">
+        <p>
+          “El ambiente es simplemente perfecto. El café tiene un sabor increíble
+          y la atención es de primera. Es mi lugar favorito para relajarme y
+          desconectarme un rato.”
+        </p>
+        <p class="autor">– Robinson Rodriguez</p>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="contenedor contenido-footer bg-white">
+        <!-- Ubicación -->
+        <div class="footer-box ubicacion">
+          <h3>Ubicación</h3>
+          <p>Jirón Los Dibujitos 28</p>
+          <p>Rioja, Perú</p>
+        </div>
+
+        <!-- Reservación -->
+        <div class="footer-box reservacion">
+          <h3>Reservación</h3>
+          <p>0-456665-6788</p>
+          <div class="iconos-contacto">
+            <a
+              href="https://wa.me/51987825541"
+              target="_blank"
+              title="WhatsApp"
+            >
+              <img src="./build/img/whatsapp.svg" alt="icono whatsapp" />
+            </a>
+          </div>
+        </div>
+
+        <!-- Horario -->
+        <div class="footer-box horario">
+          <h3>Horario</h3>
+          <p>Lun-Jue 11:00 - 22:00</p>
+          <p>Vie-Sáb 09:00 - 24:00</p>
+          <p>Domingo: Cerrado</p>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="copyright">
+        <p>Todos los derechos reservados &copy;</p>
+        <p>
+          Proyecto creado por
+          <a
+            href="https://www.linkedin.com/in/robinson-ojeda-9273a4346/"
+            target="_blank"
+            >RaroDev</a
+          >
+        </p>
+      </div>
+    </footer>
+  </body>
+  <script src="./js/app.js"></script>
+</html>

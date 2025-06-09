@@ -1,0 +1,12 @@
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de editores
+.vscode/
+*.log
+
+# Evitar carpetas de pruebas o copias
+node_modules/
+dist/
+build/

@@ -1,0 +1,90 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.nuestro-menu {
+  background-image: url(../img/menu_arriba.svg), url(../img/menu_abajo.svg),
+    linear-gradient(to top, v.$cafe_medio, v.$cafe_medio);
+  background-repeat: no-repeat;
+  background-position: center 5rem, center 92%, 100%;
+  background-size: 200%;
+
+  padding: 15rem 5rem 20rem 5rem;
+
+  @include m.tablet {
+    padding: 15rem 0 20rem 0;
+    background-size: 100%;
+  }
+  @include m.desktop {
+    background-size: 70%, 70%, 100%;
+  }
+}
+
+.grid-menu {
+  @include m.tablet {
+    @include m.grid(2, 2rem);
+  }
+}
+
+.menu {
+  padding: 3rem;
+  border-radius: 1.5rem;
+  backdrop-filter: blur(6px);
+  background-color: rgba(255, 255, 255, 0.03);
+
+  h3 {
+    font-size: 3.2rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+    color: v.$blanco;
+
+    &::after {
+      content: "";
+      display: block;
+      height: 3px;
+      width: 50%;
+      background-color: v.$mostaza;
+      margin-top: 0.5rem;
+    }
+  }
+
+  li {
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 1rem;
+      padding-left: 1rem;
+    }
+
+    p {
+      color: v.$blanco;
+      font-size: 2.2rem;
+      margin: 0;
+
+      span {
+        display: block;
+        font-size: 1.4rem;
+        color: lighten(v.$mostaza, 15%);
+        margin-top: 0.5rem;
+        opacity: 0.8;
+      }
+    }
+
+    .precio {
+      font-size: 2.6rem;
+      color: v.$mostaza;
+      font-weight: 700;
+    }
+  }
+}

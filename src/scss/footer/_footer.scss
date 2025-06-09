@@ -1,0 +1,72 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.footer {
+  background-color: v.$cafe_medio;
+
+  .contenido-footer {
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+
+    @include m.tablet {
+      @include m.grid(3, 2rem);
+    }
+  }
+
+  .footer-box {
+    font-family: v.$fuente_3;
+    text-align: center;
+
+    h3 {
+      margin-bottom: 1rem;
+      font-size: 2.4rem;
+      color: v.$secundario;
+    }
+
+    p,
+    a {
+      font-size: 2rem;
+      color: v.$negro;
+      margin: 0.5rem 0;
+    }
+  }
+
+  .reservacion {
+    .iconos-contacto {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+
+      a {
+        display: inline-block;
+        width: 3.2rem;
+
+        img {
+          width: 100%;
+          transition: transform 0.3s ease;
+
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+
+  .copyright {
+    text-align: center;
+    color: v.$blanco;
+    padding: 2rem 0;
+
+    a {
+      text-decoration: underline;
+
+      &:hover {
+        color: v.$verde_hoja;
+      }
+    }
+  }
+}

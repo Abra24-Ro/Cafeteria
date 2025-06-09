@@ -1,0 +1,30 @@
+{
+  "name": "cafeteria-web",
+  "version": "1.0.0",
+  "description": "i'm learning gulp and sass",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "RaroDev",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "cssnano": "^7.0.7",
+    "gulp": "^5.0.0",
+    "gulp-avif": "^1.1.1",
+    "gulp-imagemin": "^9.1.0",
+    "gulp-postcss": "^10.0.0",
+    "gulp-sass": "^6.0.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-webp": "^5.0.0",
+    "sass": "^1.89.1"
+  },
+  "dependencies": {
+    "cafeteria-web": "file:"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 1 version"
+  ]
+}

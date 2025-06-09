@@ -1,0 +1,173 @@
+// Fuentes
+$fuente_principal: "Roboto", sans-serif;
+$fuente_2: "Raleway", sans-serif;
+$fuente_3: "Bona Nova", serif;
+$fuente_secundaria: "Open Sans", sans-serif;
+
+$font-size-base: 16px;
+$line-height-base: 1.5;
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+
+// Colores base
+$bg-color: #4e342e; // Marrón oscuro café
+$primario: #e8505b; // Rojo cálido para acentos
+$secundario: #455164; // Azul grisáceo frío
+$negro: #000000; // Negro puro (arreglé que estaba #0000)
+$blanco: #ffffff;
+$gris_claro: #eceeef;
+$gris_oscuro: #2e2e2e;
+$gris_medio: #a0a0a0;
+$gris: #6e6e6e;
+
+// Nuevos tonos para cafetería
+$cafe_claro: #ebe7de; // Café claro, crema
+$cafe_medio: #6d4c41; // Café medio (más café con leche)
+$caramelo: #d7a86e; // Caramelo cálido
+$verde_hoja: #557a55; // Verde hoja para toques naturales
+$mostaza: #d4a373; // Mostaza, tono cálido y elegante
+$ocre: #bb9457; // Ocre para tonos tierra
+$rojo_vino: #7b2d2d; // Rojo vino oscuro para elegancia
+
+// Breakpoints
+$telefono: 560px;
+$tablet: 768px;
+$desktop: 1024px;
+$xl-desktop: 1280px;
+
+// Espaciados y estilo
+$separacion: 5rem;
+$separacion-sm: 2rem;
+$separacion-lg: 8rem;
+$border-radius: 0.5rem;
+$box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+// Mixins para hover y transiciones
+@mixin transition($props...) {
+  transition: $props 0.3s ease-in-out;
+}
+
+// Botones base
+.btn {
+  font-family: $fuente_principal;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  font-weight: $font-weight-bold;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  cursor: pointer;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  display: inline-block;
+  text-align: center;
+  @include transition(all);
+
+  // &--primario {
+  //   background-color: $primario;
+  //   color: $blanco;
+
+  //   &:hover,
+  //   &:focus {
+  //     background-color: darken($primario, 10%);
+  //     box-shadow: 0 4px 15px rgba($primario, 0.5);
+  //     outline: none;
+  //   }
+
+  //   &:active {
+  //     background-color: darken($primario, 15%);
+  //     box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+  //   }
+  // }
+
+  // &--secundario {
+  //   background-color: $secundario;
+  //   color: $blanco;
+
+  //   &:hover,
+  //   &:focus {
+  //     background-color: lighten($secundario, 10%);
+  //     box-shadow: 0 4px 15px rgba($secundario, 0.5);
+  //     outline: none;
+  //   }
+
+  //   &:active {
+  //     background-color: darken($secundario, 10%);
+  //     box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+  //   }
+  // }
+
+  // &--caramelo {
+  //   background-color: $caramelo;
+  //   color: $gris_oscuro;
+
+  //   &:hover,
+  //   &:focus {
+  //     background-color: darken($caramelo, 10%);
+  //     box-shadow: 0 4px 15px rgba($caramelo, 0.5);
+  //     outline: none;
+  //   }
+
+  //   &:active {
+  //     background-color: darken($caramelo, 15%);
+  //     box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+  //   }
+  // }
+}
+
+// Enlaces estilizados
+a {
+  font-family: $fuente_secundaria;
+  color: $primario;
+  text-decoration: none;
+  font-weight: $font-weight-bold;
+  @include transition(color);
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    outline: none;
+  }
+}
+
+// Tarjetas para productos o secciones
+.card {
+  background-color: $blanco;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  padding: $separacion-sm;
+  color: $gris_oscuro;
+  font-family: $fuente_principal;
+  @include transition(box-shadow);
+
+  &:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+// Fondo degradado para secciones especiales
+.bg-cafe-gradiente {
+  background: linear-gradient(135deg, $cafe_claro, $caramelo);
+  color: $gris_oscuro;
+  padding: $separacion;
+  border-radius: $border-radius;
+  font-family: $fuente_principal;
+}
+
+// Texto destacado
+.text-primario {
+  color: $primario;
+  font-weight: $font-weight-bold;
+}
+
+.text-secundario {
+  color: $secundario;
+  font-weight: $font-weight-bold;
+}
+
+// Responsive helpers
+@media (max-width: $tablet) {
+  .btn {
+    width: 100%;
+    padding: 1rem 0;
+  }
+}

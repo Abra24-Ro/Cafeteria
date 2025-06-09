@@ -1,0 +1,63 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.nuestros-testimoniales {
+  padding: 10rem 2rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  @include m.tablet {
+    padding: 10rem;
+  }
+  @include m.desktop {
+    flex-direction: row;
+  }
+
+  .testimonial {
+    padding: 4rem;
+    background-color: lighten(v.$cafe_claro, 3%);
+    margin: 0 auto;
+    border-radius: 1.5rem;
+    max-width: 60rem;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.08);
+    font-family: v.$fuente_2;
+    color: v.$negro;
+    font-size: 2rem;
+    line-height: 1.7;
+    position: relative;
+
+    &::before {
+      content: "“";
+      position: absolute;
+      top: -2rem;
+      left: 2rem;
+      font-size: 8rem;
+      color: v.$cafe_medio;
+      opacity: 0.2;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    &::after {
+      content: "”";
+      position: absolute;
+      bottom: -3rem;
+      right: 2rem;
+      font-size: 8rem;
+      color: v.$cafe_medio;
+      opacity: 0.2;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .autor {
+      margin-top: 3rem;
+      text-align: right;
+      font-size: 2.2rem;
+      color: v.$cafe_medio;
+      font-family: v.$fuente_3;
+      font-weight: 700;
+    }
+  }
+}

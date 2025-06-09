@@ -1,0 +1,45 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+/* REGLAS ADICIONALES PARA SOLUCIONAR EL PROBLEMA DE ALTURA */
+.contenido-menu {
+  display: grid;
+  gap: v.$separacion;
+  align-items: start; /* Cambiar de center a start */
+  min-height: auto; /* Asegurar que no hay restricción de altura */
+ 
+  @include m.tablet {
+    @include m.grid(2,2rem);
+    align-items: start; /* También para tablet */
+  }
+
+  .texto {
+    max-width: 70ch;
+    margin: 0 auto;
+
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+  }
+
+  .imagen {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px; /* Asegurar altura mínima */
+    overflow: visible; /* Permitir que el contenido se muestre */
+    
+    img {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      object-fit: contain;
+      
+      /* ALTERNATIVAS SI SIGUE SIN FUNCIONAR: */
+      /* max-height: none; */
+      /* min-height: 300px; */
+    }
+  }
+}

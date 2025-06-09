@@ -1,0 +1,38 @@
+@use "variables" as v;
+
+@mixin telefono {
+  @media (min-width: v.$telefono) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: v.$tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: v.$desktop) {
+    @content;
+  }
+}
+
+@mixin xl-desktop {
+  @media (min-width: v.$xl-desktop) {
+    @content;
+  }
+}
+@mixin grid($cols, $separacion) {
+  display: grid;
+  grid-template-columns: repeat($cols, 1fr);
+  gap: $separacion;
+}
+
+@mixin header-bg($imagen) {
+  background-image: url(../img/#{$imagen});
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+

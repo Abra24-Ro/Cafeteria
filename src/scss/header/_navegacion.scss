@@ -1,0 +1,44 @@
+@use "base/mixins" as m;
+@use "base/variables" as v;
+
+.nav-principal {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5rem;
+  @include m.tablet {
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 0;
+  }
+
+  a {
+    text-align: center;
+    color: v.$blanco;
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    @include m.tablet {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      color: v.$caramelo;
+    }
+   
+    &.activo {
+        color: v.$mostaza;
+      font-weight: bold;
+     
+
+       &:hover {
+      color: v.$verde_hoja;
+    }
+    }
+
+    
+  }
+}
