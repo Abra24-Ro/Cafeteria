@@ -7,7 +7,6 @@ import autoprefixer from "autoprefixer";
 import webp from "gulp-webp";
 import cssnano from "cssnano";
 
-// Compilador Sass
 const scss = gulpSass(sass);
 
 // Compilar SCSS
@@ -18,6 +17,12 @@ function css() {
     .pipe(postcss([autoprefixer(), cssnano()]))
     .pipe(sourcemaps.write("."))
     .pipe(dest("build/css"));
+}
+
+// Copiar imágenes originales
+function copiarImagenes() {
+  return src("src/img/**/*.{png,jpg,jpeg}")
+    .pipe(dest("build/img"));
 }
 
 // Convertir a WebP
@@ -33,19 +38,15 @@ function html() {
     .pipe(dest("build"));
 }
 
-// Watch para desarrollo
+// Watch
 function dev() {
   watch("src/scss/**/*.scss", css);
-  watch("src/img/**/*.{png,jpg,jpeg}", series(imagenWebp));
+  watch("src/img/**/*.{png,jpg,jpeg}", series(copiarImagenes, imagenWebp));
   watch("*.html", html);
 }
 
-// Tarea de build para producción (sin watch)
-const build = series(imagenWebp, css, html);
+const build = series(copiarImagenes, imagenWebp, css, html);
+const desarrollo = series(copiarImagenes, imagenWebp, css, html, dev);
 
-// Tarea de desarrollo (con watch)
-const desarrollo = series(imagenWebp, css, html, dev);
-
-// Exportar tareas
-export { imagenWebp, css, html, build, dev };
+export { imagenWebp, copiarImagenes, css, html, build, dev };
 export default desarrollo;
