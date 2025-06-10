@@ -4,12 +4,11 @@ import * as sass from "sass";
 import sourcemaps from "gulp-sourcemaps";
 import postcss from "gulp-postcss";
 import autoprefixer from "autoprefixer";
-import webp from "gulp-webp";
 import cssnano from "cssnano";
 
 const scss = gulpSass(sass);
 
-// Compilar SCSS
+// ✅ Compilar SCSS
 function css() {
   return src("src/scss/app.scss")
     .pipe(sourcemaps.init())
@@ -19,29 +18,20 @@ function css() {
     .pipe(dest("build/css"));
 }
 
-// Convertir a WebP
-function imagenWebp() {
-  return src("src/img/**/*.{png,jpg,jpeg}")
-    .pipe(webp())
-    .pipe(dest("build/img"));
-}
-
-// Copiar archivos HTML
+// ✅ Copiar HTML
 function html() {
-  return src("*.html")
-    .pipe(dest("build"));
+  return src("*.html").pipe(dest("build"));
 }
 
-// Watch
+// ✅ Watch sin imágenes
 function dev() {
   watch("src/scss/**/*.scss", css);
-  watch("src/img/**/*.{png,jpg,jpeg}", imagenWebp);
   watch("*.html", html);
 }
 
-// Build final sin copiar imágenes originales
-const build = series(imagenWebp, css, html);
-const desarrollo = series(imagenWebp, css, html, dev);
+// ✅ Build final sin imágenes
+const build = series(css, html);
+const desarrollo = series(css, html, dev);
 
-export { imagenWebp, css, html, build, dev };
+export { css, html, build, dev };
 export default desarrollo;
