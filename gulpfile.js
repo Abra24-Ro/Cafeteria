@@ -5,10 +5,16 @@ import sourcemaps from "gulp-sourcemaps";
 import postcss from "gulp-postcss";
 import autoprefixer from "autoprefixer";
 import cssnano from "cssnano";
+import { deleteAsync } from "del"; // 👉 npm install del
 
 const scss = gulpSass(sass);
 
-// Compilar SCSS
+// ✅ Limpiar carpeta build
+function limpiar() {
+  return deleteAsync(['build']);
+}
+
+// ✅ Compilar SCSS
 function css() {
   return src("src/scss/app.scss")
     .pipe(sourcemaps.init())
@@ -18,32 +24,33 @@ function css() {
     .pipe(dest("build/css"));
 }
 
-// Copiar HTML
+// ✅ Copiar HTML
 function html() {
   return src("*.html").pipe(dest("build"));
 }
 
-// Copiar imágenes originales
+// ✅ Copiar imágenes sin convertir
 function copiarImagenes() {
-  return src("src/img/**/*.{png,jpg,jpeg,svg,webp,gif}").pipe(dest("build/img"));
+  return src("src/img/**/*.*", { allowEmpty: true }) // Copia cualquier imagen
+    .pipe(dest("build/img"));
 }
 
-// ✅ NUEVO: Copiar JS
+// ✅ Copiar JS
 function javascript() {
   return src("src/js/**/*.js").pipe(dest("build/js"));
 }
 
-// Watch
+// ✅ Watch (modo desarrollo)
 function dev() {
   watch("src/scss/**/*.scss", css);
   watch("*.html", html);
-  watch("src/img/**/*.{png,jpg,jpeg,svg,webp,gif}", copiarImagenes);
+  watch("src/img/**/*.*", copiarImagenes);
   watch("src/js/**/*.js", javascript);
 }
 
-// Build
-const build = series(css, html, copiarImagenes, javascript);
-const desarrollo = series(css, html, copiarImagenes, javascript, dev);
+// ✅ Build final (limpia antes)
+const build = series(limpiar, css, html, copiarImagenes, javascript);
+const desarrollo = series(limpiar, css, html, copiarImagenes, javascript, dev);
 
 export { css, html, copiarImagenes, javascript, build, dev };
 export default desarrollo;
