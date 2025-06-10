@@ -1,7 +1,7 @@
 import { dest, src, watch, series } from "gulp";
 import gulpSass from "gulp-sass";
 import * as sass from "sass";
-import sourcemaps from "gulp-sourcemaps";
+import sourcemas from "gulp-sourcemaps";
 import postcss from "gulp-postcss";
 import autoprefixer from "autoprefixer";
 import cssnano from "cssnano";
