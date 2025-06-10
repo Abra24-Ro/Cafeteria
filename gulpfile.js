@@ -8,7 +8,7 @@ import cssnano from "cssnano";
 
 const scss = gulpSass(sass);
 
-// ✅ Compilar SCSS
+// Compilar SCSS
 function css() {
   return src("src/scss/app.scss")
     .pipe(sourcemaps.init())
@@ -18,28 +18,32 @@ function css() {
     .pipe(dest("build/css"));
 }
 
-// ✅ Copiar HTML
+// Copiar HTML
 function html() {
-  return src("*.html")
-    .pipe(dest("build"));
+  return src("*.html").pipe(dest("build"));
 }
 
-// ✅ NUEVO: Copiar imágenes tal cual
+// Copiar imágenes originales
 function copiarImagenes() {
-  return src("src/img/**/*.{png,jpg,jpeg,svg,webp,gif}")
-    .pipe(dest("build/img"));
+  return src("src/img/**/*.{png,jpg,jpeg,svg,webp,gif}").pipe(dest("build/img"));
 }
 
-// ✅ Watch
+// ✅ NUEVO: Copiar JS
+function javascript() {
+  return src("src/js/**/*.js").pipe(dest("build/js"));
+}
+
+// Watch
 function dev() {
   watch("src/scss/**/*.scss", css);
   watch("*.html", html);
   watch("src/img/**/*.{png,jpg,jpeg,svg,webp,gif}", copiarImagenes);
+  watch("src/js/**/*.js", javascript);
 }
 
-// ✅ Build final
-const build = series(css, html, copiarImagenes);
-const desarrollo = series(css, html, copiarImagenes, dev);
+// Build
+const build = series(css, html, copiarImagenes, javascript);
+const desarrollo = series(css, html, copiarImagenes, javascript, dev);
 
-export { css, html, copiarImagenes, build, dev };
+export { css, html, copiarImagenes, javascript, build, dev };
 export default desarrollo;
