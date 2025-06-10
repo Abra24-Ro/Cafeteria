@@ -31,7 +31,7 @@
 
 // ✅ Correcto
 @mixin header-bg($imagen) {
-  background-image: url("img/#{$imagen}");
+  background-image: url("../img/#{$imagen}");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
