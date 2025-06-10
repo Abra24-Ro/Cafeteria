@@ -20,18 +20,26 @@ function css() {
 
 // ✅ Copiar HTML
 function html() {
-  return src("*.html").pipe(dest("build"));
+  return src("*.html")
+    .pipe(dest("build"));
 }
 
-// ✅ Watch sin imágenes
+// ✅ NUEVO: Copiar imágenes tal cual
+function copiarImagenes() {
+  return src("src/img/**/*.{png,jpg,jpeg,svg,webp,gif}")
+    .pipe(dest("build/img"));
+}
+
+// ✅ Watch
 function dev() {
   watch("src/scss/**/*.scss", css);
   watch("*.html", html);
+  watch("src/img/**/*.{png,jpg,jpeg,svg,webp,gif}", copiarImagenes);
 }
 
-// ✅ Build final sin imágenes
-const build = series(css, html);
-const desarrollo = series(css, html, dev);
+// ✅ Build final
+const build = series(css, html, copiarImagenes);
+const desarrollo = series(css, html, copiarImagenes, dev);
 
-export { css, html, build, dev };
+export { css, html, copiarImagenes, build, dev };
 export default desarrollo;
