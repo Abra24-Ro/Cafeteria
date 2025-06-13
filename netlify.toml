@@ -1,11 +1,22 @@
 [build]
+  # Comando para generar los archivos de producción
+  command = "npm run build"
+  
+  # Directorio que contiene los archivos finales para publicar
   publish = "build"
-  command = "gulp build"
 
 [build.environment]
-  NODE_VERSION = "18"
+  # Versión de Node.js más reciente
+  NODE_VERSION = "20"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Configuración para archivos estáticos
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+# Para archivos HTML
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
